@@ -10,7 +10,6 @@ namespace EntityLayer.Concrete
     public class About
     {
         [Key]
-        [StringLength(1000)]
         public int AboutID { get; set; }
 
         [StringLength(1000)]
