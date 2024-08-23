@@ -18,7 +18,7 @@ namespace EntityLayer.Concrete
 
         //Content başlık
         //Content yazar
-
+        
         public int HeadingID { get; set; }
         public virtual Heading Heading { get; set; }
 
