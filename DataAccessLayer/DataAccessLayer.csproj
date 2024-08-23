@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\GenericRepository.cs" />
+    <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Migrations\202408230819168_mig1.cs" />
     <Compile Include="Migrations\202408230819168_mig1.Designer.cs">
