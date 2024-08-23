@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete
 {
-        //Veritabanına ekleme ve tablo oluşturmak için
+    //Veritabanına ekleme ve tablo oluşturmak için
     public class Context
     {
         //SQL e bir tablo olarak yansıtır
@@ -19,3 +19,4 @@ namespace DataAccessLayer.Concrete
         public DbSet<Heading> Headings { get; set; }
         public DbSet<Writer> Writers { get; set; }
     }
+}
