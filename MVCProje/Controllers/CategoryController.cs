@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace MVCProje.Controllers
     public class CategoryController : Controller
     {
         // GET: Category
-        CategoryManager cm = new CategoryManager();
+        CategoryManager cm = new CategoryManager(new EFCategoryDal());
         public ActionResult Index()
         {
             return View();
@@ -20,8 +21,8 @@ namespace MVCProje.Controllers
         public ActionResult GetCategoryList() 
         { 
             //kategoridaki veriler gelicek
-            var categoryValues = cm.GetAllBl(); 
-            return View(categoryValues);
+           var categoryValues = cm.GetList(); 
+           return View(categoryValues);
     
         }
         [HttpGet]//sayfa yuklendigi zaman calisacak
@@ -36,7 +37,7 @@ namespace MVCProje.Controllers
         [HttpPost] //sayfada butona tiklandiginda sen bu calisicak
         public ActionResult AddCategory(Category p) 
         {
-            cm.CategoryAddBL(p);
+           // cm.CategoryAddBL(p);
             return RedirectToAction("GetCategoryList");
         }
     }

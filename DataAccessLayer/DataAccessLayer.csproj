@@ -52,8 +52,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\GenericRepository.cs" />
+    <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Concrete\Context.cs" />
+    <Compile Include="EntityFramework\EFAboutDal.cs" />
+    <Compile Include="EntityFramework\EFCategoryDal.cs" />
+    <Compile Include="EntityFramework\EFContactDal.cs" />
+    <Compile Include="EntityFramework\EFContentDal.cs" />
+    <Compile Include="EntityFramework\EFHeadingDal.cs" />
+    <Compile Include="EntityFramework\EFWriterDal.cs" />
     <Compile Include="Migrations\202408230819168_mig1.cs" />
     <Compile Include="Migrations\202408230819168_mig1.Designer.cs">
       <DependentUpon>202408230819168_mig1.cs</DependentUpon>
