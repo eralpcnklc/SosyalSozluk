@@ -12,10 +12,10 @@ namespace BusinessLayer.FluentValidation
     {
         public CategoryValidatior()
         {
-            RuleFor(x =>x.CategoryName).NotEmpty().WithMessage("Kategori adini bos gecemezsiniz");
-            RuleFor(x => x.CategoryDescription).NotEmpty().WithMessage("Kategori aciklamasini bos gecemezsiniz");
-            RuleFor(x => x.CategoryName).MinimumLength(3).WithMessage("Lutfen en az 3 karakter girisi yapin");
-            RuleFor(x => x.CategoryName).MaximumLength(20).WithMessage("Lutfen 20 karakterden fazla deger girisi yapmayiniz");
+            RuleFor(x =>x.CategoryName).NotEmpty().WithMessage("Kategori adını boş geçemezsiniz");
+            RuleFor(x => x.CategoryDescription).NotEmpty().WithMessage("Kategori açıklamasını boş geçemezsiniz");
+            RuleFor(x => x.CategoryName).MinimumLength(3).WithMessage("Lütfen en az 3 karakter girişi yapın");
+            RuleFor(x => x.CategoryName).MaximumLength(20).WithMessage("Lütfen 20 karakterden fazla değer girişi yapmayınız");
         }
     }
 }
