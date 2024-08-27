@@ -25,6 +25,11 @@ namespace BusinessLayer.Concrete
 
         }
 
+        public void CategoryDelete(Category category)
+        {
+            _categorydal.Delete(category);
+        }
+
         public Category GetByID(int id)
         {
             //id ye eşit mi diye kontrol edilir
@@ -35,6 +40,8 @@ namespace BusinessLayer.Concrete
         {
             return _categorydal.List();
         }
+
+
 
 
 
