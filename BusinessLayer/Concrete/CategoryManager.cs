@@ -25,6 +25,12 @@ namespace BusinessLayer.Concrete
 
         }
 
+        public Category GetByID(int id)
+        {
+            //id ye eşit mi diye kontrol edilir
+            return _categorydal.Get(x => x.CategoryID == id);
+        }
+
         public List<Category> GetList()
         {
             return _categorydal.List();

@@ -26,6 +26,13 @@ namespace DataAccessLayer.Abstract
             c.SaveChanges();
         }
 
+        public T Get(Expression<Func<T, bool>> filter)
+        {
+            // bir dizide veya listede sadece 1 tane değer döndürmek için kullanılır
+            return _object.SingleOrDefault(filter);
+
+        }
+
         public void Insert(T p)
         {
             _object.Add(p);
