@@ -30,6 +30,12 @@ namespace BusinessLayer.Concrete
             _categorydal.Delete(category);
         }
 
+        public void CategoryUpdate(Category category)
+        {
+            _categorydal.Update(category);
+
+        }
+
         public Category GetByID(int id)
         {
             //id ye eşit mi diye kontrol edilir
@@ -40,6 +46,22 @@ namespace BusinessLayer.Concrete
         {
             return _categorydal.List();
         }
+
+        public int CategoriesCount()
+        {
+            var cl =_categorydal.List();
+            int count = 0;
+            foreach (var item in cl)
+            {
+                if (cl!=null)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+
 
 
 

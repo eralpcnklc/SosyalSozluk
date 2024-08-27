@@ -22,7 +22,8 @@ namespace DataAccessLayer.Abstract
         }
         public void Delete(T p)
         {
-            _object.Remove(p);
+            var deletedEntity = c.Entry(p);
+            deletedEntity.State = EntityState.Deleted;
             c.SaveChanges();
         }
 
@@ -35,7 +36,9 @@ namespace DataAccessLayer.Abstract
 
         public void Insert(T p)
         {
-            _object.Add(p);
+            var addedEntity = c.Entry(p);
+            addedEntity.State = EntityState.Added;
+            //_object.Add(p);
             c.SaveChanges();
         }
 
@@ -52,6 +55,9 @@ namespace DataAccessLayer.Abstract
 
         public void Update(T p)
         {
+
+            var updatedEntity = c.Entry(p);
+            updatedEntity.State = EntityState.Modified;
             c.SaveChanges();
         }
     }
