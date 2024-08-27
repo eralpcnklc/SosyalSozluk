@@ -12,31 +12,36 @@ namespace BusinessLayer.Concrete
 {
     public class HeadingManager : IHeadingService
     {
-        IHeadingDal _hd;
-        ICategoryDal _categorydal;
+        IHeadingDal _headingDal;
 
-        public Category GetByID(int id)
+        public HeadingManager(IHeadingDal headingDal)
         {
-            //id ye eşit mi diye kontrol edilir
-            return _categorydal.Get(x => x.CategoryID == id);
+            this._headingDal = headingDal;
         }
 
-        public int FindByCategory(string st)
+        public Heading GetByID(int id)
         {
-            //List<int> l = new List<int>();
-            int count = 0;
-            var hdlist = _hd.List();
-            foreach (var hd in hdlist)
-            {
-                var catID = hd.CategoryID;
-                var catName = GetByID(catID).CategoryName;
-                if (catName == st)
-                { 
-                    count++;
-                }
-            }
-            return count;
+            return _headingDal.Get(x=>x.HeadingID == id);
         }
 
+        public List<Heading> GetList()
+        {
+            return _headingDal.List();
+        }
+
+        public void HeadingAdd(Heading heading)
+        {
+            _headingDal.Insert(heading);
+        }
+
+        public void HeadingDelete(Heading heading)
+        {
+            _headingDal.Delete(heading);
+        }
+
+        public void HeadingUpdate(Heading heading)
+        {
+            _headingDal.Update(heading);
+        }
     }
 }
