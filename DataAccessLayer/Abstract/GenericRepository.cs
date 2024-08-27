@@ -30,6 +30,7 @@ namespace DataAccessLayer.Abstract
         public T Get(Expression<Func<T, bool>> filter)
         {
             // bir dizide veya listede sadece 1 tane değer döndürmek için kullanılır
+            //ornegın _writerdal.Get(x => x.WriterName) 
             return _object.SingleOrDefault(filter);
 
         }

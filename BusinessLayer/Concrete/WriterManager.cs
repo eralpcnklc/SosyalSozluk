@@ -1,7 +1,9 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,19 +12,34 @@ namespace BusinessLayer.Concrete
 {
     public class WriterManager : IWriterService
     {
-        IWriterDal _wd;
-        public int charCount(char k)
+        IWriterDal _writerdal;
+        public WriterManager(IWriterDal writerdal)
         {
-            int count = 0;
-            var l = _wd.List();
-            foreach (var c in l)
-            {
-                if (c.WriterName.Contains("k"))
-                {
-                    count++;
-                }
-            }
-            return count;
+            _writerdal = writerdal;
+        }
+        public Writer GetByID(int id)
+        {
+            return _writerdal.Get(x=>x.WriterID == id);
+        }
+
+        public List<Writer> GetList()
+        {
+            return _writerdal.List();
+        }
+
+        public void WriterAdd(Writer writer)
+        {
+            _writerdal.Insert(writer);
+        }
+
+        public void WriterRemove(Writer writer)
+        {
+            _writerdal.Delete(writer);
+        }
+
+        public void WriterUpdate(Writer writer)
+        {
+            _writerdal.Update(writer);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,10 @@ namespace BusinessLayer.Abstract
 {
     public interface IWriterService
     {
-        int charCount(char c);
+        List<Writer> GetList();
+        void WriterAdd(Writer writer);
+        void WriterRemove(Writer writer);
+        void WriterUpdate(Writer writer);
+        Writer GetByID(int id);
     }
 }
