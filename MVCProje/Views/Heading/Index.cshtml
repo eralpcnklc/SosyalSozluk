@@ -10,8 +10,7 @@
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
-        <th>Heading Adı</th>
-        <th>Heading Tarihi</th>
+        <th>Başlık</th>
         <th>Kategori</th>
     </tr>
     @foreach (var item in Model)
@@ -19,7 +18,6 @@
         <tr>
             <td>@item.HeadingID</td>
             <td>@item.HeadingName</td>
-            <td>@item.HeadingDate</td>
             <td>@item.Category.CategoryName</td>
         </tr>
     }

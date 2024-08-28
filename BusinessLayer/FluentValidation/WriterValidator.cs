@@ -16,6 +16,7 @@ namespace BusinessLayer.FluentValidation
             RuleFor(x => x.WriterSurName).NotEmpty().WithMessage("Yazar soyadını boş geçemezsiniz");
             RuleFor(x => x.WriterTitle).NotEmpty().WithMessage("Yazar ünvan kısmını boş geçemezsiniz");
             RuleFor(x => x.WriterName).MinimumLength(2).WithMessage("Lütfen en az 2 karakter girişi yapın");
+            RuleFor(x => x.WriterPassword).NotEmpty().WithMessage("Şifre kısmı boş bırakılamaz");
             RuleFor(x => x.WriterSurName).MaximumLength(20).WithMessage("Lütfen 50 karakterden fazla karakter girişi yapmayınız");
         }
     }
