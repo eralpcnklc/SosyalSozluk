@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,24 +11,41 @@ namespace BusinessLayer.Concrete
 {
     public class ContentManager : IContentService
     {
+        IContentDal _icontentdal;
+
+        public ContentManager(IContentDal icontentdal)
+        {
+            _icontentdal = icontentdal;
+        }
+
         public void AddContent(Content content)
         {
-            throw new NotImplementedException();
+            _icontentdal.Insert(content);
         }
 
         public void DeleteContent(Content content)
         {
-            throw new NotImplementedException();
+            _icontentdal.Delete(content);
         }
 
         public void EditContent(Content content)
         {
-            throw new NotImplementedException();
+            _icontentdal.Update(content);
+        }
+
+        public Content GetByID(int id)
+        {
+            return _icontentdal.Get(x=>x.ContentID==id);
+        }
+
+        public List<Content> GetContentList()
+        {
+            return _icontentdal.List();
         }
 
         public List<Content> GetListByID(int id)
         {
-            throw new NotImplementedException();
+            return _icontentdal.List(x=>x.HeadingID==id);
         }
     }
 }
