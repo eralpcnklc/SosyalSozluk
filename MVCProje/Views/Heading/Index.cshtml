@@ -37,10 +37,13 @@
                             <th style="width: 30%">
                                 Oluşturan Yazar
                             </th>
+                            <th style="width: 10%">
+                                Durum
+                            </th>
                             <th style="width: 8%" class="text-center">
                                 Kategori
                             </th>
-                            <th style="width: 25%">
+                            <th style="width: 30%">
                             </th>
                         </tr>
                     </thead>
@@ -60,9 +63,22 @@
                                     <small>
                                         @(((DateTime)item.HeadingDate).ToString("dd-MM-yyyy"))
                                     </small>
+
+
                                 </td>
+
                                 <td>
                                     @item.Writer.WriterName @item.Writer.WriterSurName
+                                </td>
+                                <td>
+                                    @if (item.HeadingStatus)
+                                    {
+                                        <div style="background-color:aquamarine;border-radius:15px;text-align:center">@item.HeadingStatus</div>
+                                    }
+                                    else
+                                    {
+                                        <div style="background-color: orangered; border-radius: 15px; text-align: center" >@item.HeadingStatus</div>
+                                    }
                                 </td>
                                 <td>
                                     @item.Category.CategoryName
