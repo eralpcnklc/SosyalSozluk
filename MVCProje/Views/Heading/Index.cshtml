@@ -96,11 +96,23 @@
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        Sil
-                                    </a>
+                                    @if (item.HeadingStatus)
+                                    {
+                                        <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Sil
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-success btn-sm" href="/Heading/DeleteHeading/@item.HeadingID">
+                                            <i class="fas fa-plus">
+                                            </i>
+                                            Aktif Et
+                                        </a>
+                                    }
+
                                 </td>
                             </tr>
                         }
