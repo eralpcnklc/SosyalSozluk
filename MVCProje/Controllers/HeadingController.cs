@@ -27,7 +27,7 @@ namespace MVCProje.Controllers
             //kategori sınıfındaki değerleri bir id ve isim olarak tutucak
             List<SelectListItem> valueCategory = (from x in cm.GetList() select new SelectListItem { Text =x.CategoryName,Value = x.CategoryID.ToString()}).ToList();
 
-
+            //dropdownlist
             List<SelectListItem> valueWriter = (from x in wm.GetList() select new SelectListItem { Text = x.WriterName + " " + x.WriterSurName, Value = x.WriterID.ToString() }).ToList();
             ViewBag.vlw = valueWriter;
             //view tarafına taşımak için
@@ -42,6 +42,18 @@ namespace MVCProje.Controllers
             hm.HeadingAdd(heading);
             return RedirectToAction("Index");
         
+        }
+
+        public ActionResult DeleteHeading(int id)
+        {
+            var headingValue = hm.GetByID(id);
+            hm.HeadingDelete(headingValue);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ContentByHeading()
+        {
+            return View();
         }
     }
 }

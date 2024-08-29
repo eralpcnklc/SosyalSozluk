@@ -75,6 +75,14 @@
     <Compile Include="Migrations\202408271314237_mig_writertitle.Designer.cs">
       <DependentUpon>202408271314237_mig_writertitle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202408290548120_mig_image.cs" />
+    <Compile Include="Migrations\202408290548120_mig_image.Designer.cs">
+      <DependentUpon>202408290548120_mig_image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202408290606233_mig_writerstatus.cs" />
+    <Compile Include="Migrations\202408290606233_mig_writerstatus.Designer.cs">
+      <DependentUpon>202408290606233_mig_writerstatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,6 +105,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202408271314237_mig_writertitle.resx">
       <DependentUpon>202408271314237_mig_writertitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408290548120_mig_image.resx">
+      <DependentUpon>202408290548120_mig_image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408290606233_mig_writerstatus.resx">
+      <DependentUpon>202408290606233_mig_writerstatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
