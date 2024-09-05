@@ -94,6 +94,10 @@
     <Compile Include="Migrations\202408290843335_mig_headingstatusadd.Designer.cs">
       <DependentUpon>202408290843335_mig_headingstatusadd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202409050806012_mig_add_class.cs" />
+    <Compile Include="Migrations\202409050806012_mig_add_class.Designer.cs">
+      <DependentUpon>202409050806012_mig_add_class.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202408290843335_mig_headingstatusadd.resx">
       <DependentUpon>202408290843335_mig_headingstatusadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409050806012_mig_add_class.resx">
+      <DependentUpon>202409050806012_mig_add_class.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -15,7 +15,7 @@ namespace MVCProje.Controllers
         public ActionResult Index()
         {
             var aboutValues = am.GetList();
-            return View(aboutValues);
+            return View(aboutValues);            
         }
 
         [HttpGet]
