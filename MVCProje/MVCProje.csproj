@@ -153,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Roles\AdminRoleProvider.cs" />
     <Compile Include="Startup.cs" />
     <Content Include="AdminLTE-3.0.4\login-form-19\css\bootstrap.min.css" />
     <Content Include="AdminLTE-3.0.4\login-form-19\css\bootstrap\mixins\_border-radius.css" />

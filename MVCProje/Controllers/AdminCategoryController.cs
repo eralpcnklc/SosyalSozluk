@@ -15,6 +15,8 @@ namespace MVCProje.Controllers
     {
         //farkli bir bilesen gecildigi zamana olabilidigince az kod yazmak icin
         CategoryManager cm =new CategoryManager(new EFCategoryDal());
+
+        [Authorize]
         public ActionResult Index()
         {
             var categoryValues = cm.GetList();

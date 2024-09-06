@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Abstract\GenericRepository.cs" />
     <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="EntityFramework\EFAboutDal.cs" />
+    <Compile Include="EntityFramework\EFAdminDal.cs" />
     <Compile Include="EntityFramework\EFCategoryDal.cs" />
     <Compile Include="EntityFramework\EFContactDal.cs" />
     <Compile Include="EntityFramework\EFContentDal.cs" />
