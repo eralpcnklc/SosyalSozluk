@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -37,7 +38,9 @@ namespace MVCProje.Roles
 
         public override string[] GetRolesForUser(string username)
         {
-            throw new NotImplementedException();
+            Context context = new Context();
+            var x =context.Admins.FirstOrDefault(y=>y.AdminUsername == username);
+            return new string[] {x.AdminRole};
         }
 
         public override string[] GetUsersInRole(string roleName)

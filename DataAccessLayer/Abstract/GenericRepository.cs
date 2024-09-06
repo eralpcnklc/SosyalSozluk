@@ -6,11 +6,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace DataAccessLayer.Abstract
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
+      
 
         Context c = new Context();
         DbSet<T> _object;
@@ -37,6 +39,7 @@ namespace DataAccessLayer.Abstract
 
         public void Insert(T p)
         {
+
             var addedEntity = c.Entry(p);
             addedEntity.State = EntityState.Added;
             //_object.Add(p);

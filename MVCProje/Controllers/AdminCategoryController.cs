@@ -6,6 +6,8 @@ using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,7 +18,22 @@ namespace MVCProje.Controllers
         //farkli bir bilesen gecildigi zamana olabilidigince az kod yazmak icin
         CategoryManager cm =new CategoryManager(new EFCategoryDal());
 
-        [Authorize]
+        public static byte[] GetHash(string inputString)
+        {
+            using (HashAlgorithm algorithm = SHA256.Create())
+                return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
+        }
+
+        public static string GetHashString(string inputString)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in GetHash(inputString))
+                sb.Append(b.ToString("X2"));
+
+            return sb.ToString();
+        }
+
+        [Authorize(Roles = "A")]
         public ActionResult Index()
         {
             var categoryValues = cm.GetList();
@@ -28,6 +45,8 @@ namespace MVCProje.Controllers
         {
             return View();    
         }
+
+
         [HttpPost]
         public ActionResult AddCategory(Category category)
         {
