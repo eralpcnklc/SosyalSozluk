@@ -22,6 +22,11 @@ namespace BusinessLayer.Concrete
             return _writerdal.Get(x=>x.WriterID == id);
         }
 
+        public Writer GetByID()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Writer> GetList()
         {
             return _writerdal.List();
