@@ -16,6 +16,7 @@ namespace MVCProje.Controllers
         CategoryManager cm = new CategoryManager(new EFCategoryDal());
         HeadingManager hm = new HeadingManager( new EFHeadingDal());
         ContentManager contentmanager = new ContentManager(new EFContentDal());
+        Context context = new Context();
 
         public ActionResult WriterProfile()
         {
@@ -24,7 +25,7 @@ namespace MVCProje.Controllers
 
         public ActionResult MyHeadings(string p) 
         {
-            Context context = new Context();
+            
             p = (string)Session["WriterMail"];
             var writeridinfo = hm.GetByEmailID(p);
             var contentValues = hm.GetListByWriter(writeridinfo);
@@ -42,8 +43,10 @@ namespace MVCProje.Controllers
         [HttpPost]
         public ActionResult NewHeading(Heading heading)
         {
+            var p = (string)Session["WriterMail"];
+            var writeridinfo = hm.GetByEmailID(p);
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            heading.WriterID = 1;
+            heading.WriterID = writeridinfo;
             heading.HeadingStatus = true;
             hm.HeadingAdd(heading);
             return RedirectToAction("MyHeadings");
