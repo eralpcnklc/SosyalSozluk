@@ -84,5 +84,10 @@ namespace MVCProje.Controllers
             return View(contentValues);
 
         }
+
+        public ActionResult AllHeadings() {
+            var allheadings = hm.GetList();
+            return View(allheadings); 
+        }
     }
 }
