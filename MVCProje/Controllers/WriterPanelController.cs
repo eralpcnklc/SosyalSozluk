@@ -15,6 +15,7 @@ namespace MVCProje.Controllers
         // GET: WriterPanel
         CategoryManager cm = new CategoryManager(new EFCategoryDal());
         HeadingManager hm = new HeadingManager( new EFHeadingDal());
+        ContentManager contentmanager = new ContentManager(new EFContentDal());
 
         public ActionResult WriterProfile()
         {
@@ -23,9 +24,9 @@ namespace MVCProje.Controllers
 
         public ActionResult MyHeadings(string p) 
         {
-           Context context = new Context();
+            Context context = new Context();
             p = (string)Session["WriterMail"];
-            var writeridinfo = context.Writers.Where(x => x.WriterMail == p).Select(x => x.WriterID).FirstOrDefault();
+            var writeridinfo = hm.GetByEmailID(p);
             var contentValues = hm.GetListByWriter(writeridinfo);
             return View(contentValues);
         }
@@ -72,6 +73,13 @@ namespace MVCProje.Controllers
             headingValue.HeadingStatus = false;
             hm.HeadingDelete(headingValue);
             return RedirectToAction("MyHeadings");
+        }
+
+        public ActionResult ContentByHeadingID(int id)
+        {
+            var contentValues=  contentmanager.GetListByID(id);
+            return View(contentValues);
+
         }
     }
 }

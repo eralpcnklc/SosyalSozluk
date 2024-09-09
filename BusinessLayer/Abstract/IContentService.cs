@@ -18,5 +18,7 @@ namespace BusinessLayer.Abstract
 
         List<Content> GetListByID(int id);
 
+       
+
     }
 }

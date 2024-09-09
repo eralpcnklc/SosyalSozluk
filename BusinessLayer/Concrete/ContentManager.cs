@@ -33,6 +33,7 @@ namespace BusinessLayer.Concrete
             _icontentdal.Update(content);
         }
 
+
         public Content GetByID(int id)
         {
             return _icontentdal.Get(x=>x.ContentID==id);

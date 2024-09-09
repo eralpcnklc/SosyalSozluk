@@ -2574,6 +2574,7 @@
     <Content Include="Views\WriterPanel\EditHeading.cshtml" />
     <Content Include="Views\WriterPanelContent\MyContent.cshtml" />
     <Content Include="Views\Login\WriterLogin.cshtml" />
+    <Content Include="Views\WriterPanel\ContentByHeadingID.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

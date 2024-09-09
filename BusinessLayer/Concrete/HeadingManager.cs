@@ -48,5 +48,10 @@ namespace BusinessLayer.Concrete
         {
             return _headingDal.List(x=>x.WriterID == id);
         }
+
+        public int GetByEmailID(string email)
+        {
+            return _headingDal.List(x=>x.Writer.WriterMail == email).Select(y=>y.WriterID).FirstOrDefault();
+        }
     }
 }
