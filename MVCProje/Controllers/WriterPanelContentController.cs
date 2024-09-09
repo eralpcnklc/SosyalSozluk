@@ -16,10 +16,8 @@ namespace MVCProje.Controllers
         public ActionResult MyContent(string p)
         {
             Context context = new Context();
-            int id;
             p = (string)Session["WriterMail"];
             var writeridinfo = context.Writers.Where(x => x.WriterMail == p).Select(x => x.WriterID).FirstOrDefault();
-
             var contentValues = cm.GetContentByWriter(writeridinfo);
             return View(contentValues);
         }

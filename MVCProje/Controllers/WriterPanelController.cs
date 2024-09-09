@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -14,15 +15,19 @@ namespace MVCProje.Controllers
         // GET: WriterPanel
         CategoryManager cm = new CategoryManager(new EFCategoryDal());
         HeadingManager hm = new HeadingManager( new EFHeadingDal());
+
         public ActionResult WriterProfile()
         {
             return View();
         }
 
-        public ActionResult MyHeadings() 
+        public ActionResult MyHeadings(string p) 
         {
-            var values = hm.GetListByWriter();
-            return View(values);
+           Context context = new Context();
+            p = (string)Session["WriterMail"];
+            var writeridinfo = context.Writers.Where(x => x.WriterMail == p).Select(x => x.WriterID).FirstOrDefault();
+            var contentValues = hm.GetListByWriter(writeridinfo);
+            return View(contentValues);
         }
 
         [HttpGet]
