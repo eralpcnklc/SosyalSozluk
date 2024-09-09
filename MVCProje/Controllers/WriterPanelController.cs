@@ -2,6 +2,7 @@
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -85,8 +86,9 @@ namespace MVCProje.Controllers
 
         }
 
-        public ActionResult AllHeadings() {
-            var allheadings = hm.GetList();
+        public ActionResult AllHeadings(int p = 1) {
+
+            var allheadings = hm.GetList().ToPagedList(p, 4);
             return View(allheadings); 
         }
     }
